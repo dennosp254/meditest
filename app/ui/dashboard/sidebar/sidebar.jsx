@@ -1,4 +1,16 @@
 import styles from "./sidebar.module.css"
+import {
+    MdDashboard,
+    MdSupervisedUserCircle,
+    MdShoppingBag,
+    MdAttachMoney,
+    MdWork,
+    MdAnalytics,
+    MdPeople,
+    MdOutlineSettings,
+    MdHelpCenter,
+    MdLogout,
+} from "react-icons/md";
 
 const menuItems = [
     {
@@ -16,12 +28,12 @@ const menuItems = [
             },
             {
                 title: "Products",
-                path: "/dashboard/products"
+                path: "/dashboard/products",
                 icon: <MdShoppingBag/>,
             },
             {
                 title: "Transactions",
-                path: "/dashboard/transactions"
+                path: "/dashboard/transactions",
                 icon: <MdAttachMoney/>,
             },
         ],
@@ -47,7 +59,7 @@ const menuItems = [
         ],
     },
     {
-        title: "User"
+        title: "User",
         list: [
             {
                 title: "Settings",
@@ -65,8 +77,15 @@ const menuItems = [
 
 const Sidebar = () => {
     return (
-        <div className={styles.container}>Sidebar</div>
-    )
-}
-
-export default Sidebar
+        <div className={styles.container}>
+            <ul>
+                {menuItems.map((cat) => (
+                   <li key={cat.title}>
+                    <span className={styles.cat}>{cat.title}</span>
+                   </li> 
+                ))}
+            </ul>
+        </div>
+    );
+};
+export default Sidebar;
